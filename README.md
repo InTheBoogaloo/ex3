@@ -1,5 +1,5 @@
 # SII ITC — Portal Estudiantil
-
+HOLAAA esto me lo gepete entero porque no tenia ganas de pensar la neta jjjijijijiji
 Aplicación web en **Next.js 14** que consume la API REST del Sistema de Información Institucional del ITC Celaya.
 
 ---
