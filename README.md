@@ -41,7 +41,7 @@ Abre [http://localhost:3000](http://localhost:3000). Te redirige automáticament
 sii-itc/
 ├── src/
 │   ├── lib/
-│   │   └── auth.js                         ← ⭐ Utilidades compartidas (TOKEN, fetch)
+│   │   └── auth.js                         ←  Utilidades compartidas (TOKEN, fetch)
 │   └── app/
 │       ├── globals.css
 │       ├── layout.jsx
@@ -51,12 +51,12 @@ sii-itc/
 │       │       └── [...path]/
 │       │           └── route.js             ← Proxy para evitar CORS con la API
 │       ├── login/
-│       │   ├── page.jsx                     ← Módulo 1: Login ✅
+│       │   ├── page.jsx                     ← Módulo 1: Login 
 │       │   └── login.module.css
 │       └── dashboard/
-│           ├── layout.jsx                   ← Sidebar de navegación compartido ✅
+│           ├── layout.jsx                   ← Sidebar de navegación compartido 
 │           ├── layout.module.css
-│           ├── page.jsx                     ← Módulo 2: Perfil del estudiante ✅
+│           ├── page.jsx                     ← Módulo 2: Perfil del estudiante 
 │           ├── page.module.css
 │           ├── calificaciones/
 │           │   └── page.jsx                 ← Módulo 3: TU MÓDULO VA AQUÍ
@@ -71,7 +71,7 @@ sii-itc/
 
 ---
 
-## ⭐ Lo más importante: auth.js
+##  auth.js
 
 Este archivo es el estándar del equipo. **Todos los módulos deben importar desde aquí**, nunca manejar el token manualmente.
 
