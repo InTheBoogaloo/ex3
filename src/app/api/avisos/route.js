@@ -43,7 +43,7 @@ let avisos = [
 
 let nextId = avisos.length + 1;
 
-const ADMIN_PASSWORD = 'itc2025admin'; // contraseña hardcodeada para el examen
+const ADMIN_PASSWORD = 'password'; // contraseña hardcodeada para el examen
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function json(data, status = 200) {
