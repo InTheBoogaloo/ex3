@@ -87,9 +87,10 @@ const Icons = {
 /* ─── Hero con glitch ────────────────────────────────────────────────────────── */
 function GlitchHero({ student, loading }) {
   const [hovered, setHovered] = useState(false);
-  const name     = student?.nombre || student?.name || 'Estudiante';
-  const id       = student?.numero_control || student?.matricula || '';
-  const initials = name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+    const name     = student?.persona || 'Estudiante';
+    const id       = student?.numero_control || '';
+    const initials = name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+
 
   const glitchedName     = useGlitch(name, hovered);
   const glitchedId       = useGlitch(id ? `→ ${id}` : '→ --', hovered);
@@ -158,13 +159,12 @@ export default function DashboardPage() {
       <GlitchHero student={student} loading={loading} />
 
       <div className={styles.grid}>
-        <InfoCard label="Nombre completo" loading={loading} icon={Icons.user} value={student?.nombre || student?.name} />
-        <InfoCard label="No. de control"  loading={loading} icon={Icons.id}   value={student?.numero_control || student?.matricula} />
-        <InfoCard label="Correo"          loading={loading} icon={Icons.mail}  value={student?.email || student?.correo} />
-        <InfoCard label="Carrera"         loading={loading} icon={Icons.book}  value={student?.carrera || student?.programa} />
-        <InfoCard label="Campus"          loading={loading} icon={Icons.map}   value={student?.campus || 'Celaya'} />
-        <InfoCard label="Semestre actual" loading={loading} icon={Icons.cal}
-          value={student?.semestre ? `Semestre ${student.semestre}` : student?.periodo} />
+<InfoCard label="Nombre completo"     loading={loading} icon={Icons.user} value={student?.persona} />
+<InfoCard label="No. de control"      loading={loading} icon={Icons.id}   value={student?.numero_control} />
+<InfoCard label="Correo"              loading={loading} icon={Icons.mail}  value={student?.email} />
+<InfoCard label="Créditos acumulados" loading={loading} icon={Icons.book}  value={student?.creditos_acumulados} />
+<InfoCard label="Promedio ponderado"  loading={loading} icon={Icons.map}   value={student?.promedio_ponderado ? parseFloat(student.promedio_ponderado).toFixed(2) : '—'} />
+<InfoCard label="Semestre" loading={loading} icon={Icons.cal} value={student?.semestre ? 'Semestre ' + student.semestre : '—'} />
       </div>
     </section>
   );
