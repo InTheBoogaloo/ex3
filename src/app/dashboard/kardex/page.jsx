@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { authFetch } from '@/lib/auth';
-import styles from './page.module.css';
+// import styles from './page.module.css';
 
 // ── Skeleton ──────────────────────────────────────────────────
 function Skeleton({ w = '100%', h = '1rem', r = '6px' }) {
