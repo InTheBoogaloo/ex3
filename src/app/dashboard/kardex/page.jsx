@@ -1,15 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-<<<<<<< HEAD
-import { authFetch } from '@/lib/auth';
-// import styles from './page.module.css';
-=======
 import { useRouter } from 'next/navigation';
 import { authFetch, isAuthenticated } from '@/lib/auth';
 import styles from './kardex.module.css';
->>>>>>> gjrr
-
 // ── Skeleton ─────────────────────────────
 function Skeleton({ w = '100%', h = '1rem' }) {
   return (
@@ -173,3 +167,4 @@ export default function KardexPage() {
     </section>
   );
 }
+
