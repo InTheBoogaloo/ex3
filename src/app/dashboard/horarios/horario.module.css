@@ -1,0 +1,93 @@
+.page {
+  padding: 2rem;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  min-height: 100vh;
+  color: #e2e8f0;
+}
+
+.title {
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  font-size: .8rem;
+  color: #64748b;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: 60px repeat(5, 1fr);
+  gap: 10px;
+}
+
+/* ── Horas ── */
+.horas {
+  display: flex;
+  flex-direction: column;
+}
+
+.horaLabel {
+  height: 60px;
+  font-size: .7rem;
+  color: #64748b;
+}
+
+/* ── Columnas ── */
+.columna {
+  background: rgba(15,23,42,0.6);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.diaTitle {
+  text-align: center;
+  padding: .5rem;
+  font-size: .75rem;
+  background: rgba(2,6,23,0.8);
+  border-bottom: 1px solid rgba(148,163,184,0.1);
+}
+
+/* ── Body ── */
+.dayBody {
+  position: relative;
+}
+
+.slot {
+  height: 60px;
+  border-bottom: 1px solid rgba(148,163,184,0.05);
+}
+
+/* ── Clase ── */
+.clase {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  border-radius: 8px;
+  padding: .4rem;
+  font-size: .65rem;
+  backdrop-filter: blur(6px);
+}
+
+.nombre {
+  display: block;
+  font-weight: 600;
+}
+
+.salon {
+  font-size: .6rem;
+  color: #94a3b8;
+}
+
+.hora {
+  font-size: .6rem;
+  color: #64748b;
+}
+
+/* ── Loading ── */
+.loading {
+  padding: 2rem;
+  color: #94a3b8;
+}
