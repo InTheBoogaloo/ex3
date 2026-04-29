@@ -1,0 +1,133 @@
+.page {
+  padding: 2rem;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  min-height: 100vh;
+  color: #e2e8f0;
+}
+
+/* ── Header ── */
+.pageTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #f8fafc;
+}
+
+/* ── Periodo ── */
+.periodo {
+  margin-bottom: 2rem;
+  padding: 1.2rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.periodoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.periodoHeader h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+
+.periodoHeader span {
+  font-size: .8rem;
+  color: #94a3b8;
+}
+
+/* ── Materia ── */
+.materiaCard {
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.06);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: .8rem;
+  transition: all .2s ease;
+}
+
+.materiaCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+/* Header materia */
+.materiaHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .6rem;
+}
+
+.materiaNombre {
+  font-size: .95rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.materiaClave {
+  font-size: .75rem;
+  color: #64748b;
+}
+
+/* ── Calificaciones ── */
+.calificaciones {
+  display: flex;
+  gap: .8rem;
+}
+
+.calItem {
+  background: rgba(15, 23, 42, 0.8);
+  padding: .4rem .6rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 45px;
+}
+
+.calLabel {
+  font-size: .65rem;
+  color: #64748b;
+}
+
+.calValue {
+  font-size: .9rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ── Estados de calificación ── */
+.aprobado {
+  color: #22c55e;
+}
+
+.reprobado {
+  color: #ef4444;
+}
+
+.sinDato {
+  color: #475569;
+}
+
+/* ── Skeleton ── */
+.skeleton {
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #0f172a 25%,
+    #1e293b 50%,
+    #0f172a 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
