@@ -18,16 +18,15 @@ const parseHora = (rango) => {
   return { inicio, fin };
 };
 
-const getColor = (nombre) => {
-  const colors = [
-    '#22c55e', '#3b82f6', '#a855f7',
-    '#f59e0b', '#ef4444', '#14b8a6'
-  ];
+// Paleta de patrones paper — en lugar de colores vivos usamos
+// bordes izquierdos en distintas intensidades de gris/negro
+const getBorderColor = (nombre) => {
+  const palette = ['#1a1a1a', '#555', '#888', '#aaa', '#bbb', '#333'];
   let hash = 0;
   for (let i = 0; i < nombre.length; i++) {
     hash = nombre.charCodeAt(i) + ((hash << 5) - hash);
   }
-  return colors[Math.abs(hash) % colors.length];
+  return palette[Math.abs(hash) % palette.length];
 };
 
 // ── Bloque clase ────────────────────────
@@ -40,10 +39,9 @@ function Clase({ materia, dia }) {
 
   if (startIndex === -1 || endIndex === -1) return null;
 
-  const top = startIndex * 60;
+  const top    = startIndex * 60;
   const height = (endIndex - startIndex) * 60;
-
-  const color = getColor(materia.nombre_materia);
+  const border = getBorderColor(materia.nombre_materia);
 
   return (
     <div
@@ -51,8 +49,8 @@ function Clase({ materia, dia }) {
       style={{
         top,
         height,
-        background: color + '22',
-        borderLeft: `3px solid ${color}`
+        borderLeft: `2px solid ${border}`,
+        background: '#edeae3',
       }}
     >
       <span className={styles.nombre}>
@@ -74,25 +72,33 @@ export default function HorarioPage() {
 
   useEffect(() => {
     authFetch('/movil/estudiante/horarios')
-      .then(res => setData(res?.data || res))
+      .then(res => setData(res?.data || res));
   }, []);
 
-  if (!data) return <p className={styles.loading}>Cargando horario...</p>;
+  if (!data) {
+    return (
+      <section className={styles.page}>
+        <p className={styles.loading}>cargando horario...</p>
+      </section>
+    );
+  }
 
   const periodo = data[0];
 
   return (
     <section className={styles.page}>
-      <h1 className={styles.title}>Horario</h1>
-
-      <span className={styles.subtitle}>
-        {periodo.periodo.descripcion_periodo}
-      </span>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.title}>Horario</h1>
+        <span className={styles.subtitle}>
+          {periodo.periodo.descripcion_periodo}
+        </span>
+      </div>
 
       <div className={styles.grid}>
-        
+
         {/* Columna horas */}
         <div className={styles.horas}>
+          <div className={styles.horaLabelEmpty} />
           {horas.map(h => (
             <div key={h} className={styles.horaLabel}>{h}</div>
           ))}

@@ -10,20 +10,18 @@ function Skeleton({ w = '100%', h = '1rem' }) {
   return (
     <span
       className={styles.skeleton}
-      style={{ width: w, height: h }}
+      style={{ width: w, height: h, display: 'inline-block' }}
     />
   );
 }
 
-// ── Utils ───────────────────────────────
+// ── Utils ────────────────────────────────
 const agruparPorSemestre = (kardex) => {
   const grupos = {};
-
   kardex.forEach(m => {
     if (!grupos[m.semestre]) grupos[m.semestre] = [];
     grupos[m.semestre].push(m);
   });
-
   return grupos;
 };
 
@@ -31,20 +29,16 @@ const promedioGeneral = (kardex) => {
   const nums = kardex
     .map(m => parseFloat(m.calificacion))
     .filter(n => !isNaN(n));
-
   if (!nums.length) return null;
-
-  return (nums.reduce((a, b) => a + b, 0) / nums.length);
+  return nums.reduce((a, b) => a + b, 0) / nums.length;
 };
 
 const promedioSemestre = (materias) => {
   const nums = materias
     .map(m => parseFloat(m.calificacion))
     .filter(n => !isNaN(n));
-
   if (!nums.length) return null;
-
-  return (nums.reduce((a, b) => a + b, 0) / nums.length);
+  return nums.reduce((a, b) => a + b, 0) / nums.length;
 };
 
 const getClass = (val) => {
@@ -53,20 +47,19 @@ const getClass = (val) => {
   return num >= 70 ? styles.aprobado : styles.reprobado;
 };
 
-// ── Materia Row ─────────────────────────
+// ── Materia Row ──────────────────────────
 function MateriaRow({ m }) {
   return (
     <div className={styles.materiaRow}>
       <div>
         <span className={styles.nombre}>{m.nombre_materia}</span>
         <span className={styles.clave}>
-          {m.clave_materia} • {m.periodo}
+          {m.clave_materia} · {m.periodo}
         </span>
       </div>
 
       <div className={styles.right}>
         <span className={styles.creditos}>{m.creditos} cr</span>
-
         <span className={`${styles.calificacion} ${getClass(m.calificacion)}`}>
           {m.calificacion}
         </span>
@@ -75,15 +68,14 @@ function MateriaRow({ m }) {
   );
 }
 
-// ── Semestre Block ──────────────────────
+// ── Semestre Block ────────────────────────
 function SemestreBlock({ semestre, materias }) {
   const prom = promedioSemestre(materias);
 
   return (
     <div className={styles.semestre}>
       <div className={styles.semestreHeader}>
-        <h3>Semestre {semestre}</h3>
-
+        <span>Semestre {semestre}</span>
         {prom && (
           <span className={`${styles.prom} ${getClass(prom)}`}>
             {prom.toFixed(1)}
@@ -100,12 +92,12 @@ function SemestreBlock({ semestre, materias }) {
   );
 }
 
-// ── Página ──────────────────────────────
+// ── Página ───────────────────────────────
 export default function KardexPage() {
   const router = useRouter();
-  const [data, setData] = useState(null);
+  const [data, setData]       = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError]     = useState('');
 
   useEffect(() => {
     if (!isAuthenticated()) {
@@ -122,16 +114,20 @@ export default function KardexPage() {
   if (loading) {
     return (
       <section className={styles.page}>
-        <Skeleton h="40px" w="200px" />
+        <Skeleton h="2rem" w="160px" />
       </section>
     );
   }
 
   if (error) {
-    return <p className={styles.error}>{error}</p>;
+    return (
+      <section className={styles.page}>
+        <p className={styles.error}>{error}</p>
+      </section>
+    );
   }
 
-  const grupos = agruparPorSemestre(data.kardex);
+  const grupos      = agruparPorSemestre(data.kardex);
   const promGeneral = promedioGeneral(data.kardex);
 
   return (
@@ -140,7 +136,7 @@ export default function KardexPage() {
 
       {/* ── Resumen ── */}
       <div className={styles.resumen}>
-        <div>
+        <div className={styles.resumenItem}>
           <span className={styles.label}>Avance</span>
           <span className={styles.value}>
             {data.porcentaje_avance.toFixed(2)}%
@@ -148,7 +144,7 @@ export default function KardexPage() {
         </div>
 
         {promGeneral && (
-          <div>
+          <div className={styles.resumenItem}>
             <span className={styles.label}>Promedio</span>
             <span className={`${styles.value} ${getClass(promGeneral)}`}>
               {promGeneral.toFixed(1)}

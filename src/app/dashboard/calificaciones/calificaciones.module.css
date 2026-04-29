@@ -1,133 +1,151 @@
+/* ─── Calificaciones ──────────────────────────────────────────────────────────── */
 .page {
-  padding: 2rem;
-  background: radial-gradient(circle at top, #0f172a, #020617);
+  padding: 2.5rem 3rem;
+  background: #f5f3ef;
   min-height: 100vh;
-  color: #e2e8f0;
+  color: #1a1a1a;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-/* ── Header ── */
-.pageTitle {
-  font-size: 1.8rem;
-  font-weight: 600;
+.pageHeader {
   margin-bottom: 2rem;
-  color: #f8fafc;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.pageTitle {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0;
 }
 
 /* ── Periodo ── */
 .periodo {
-  margin-bottom: 2rem;
-  padding: 1.2rem;
-  border-radius: 14px;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(148, 163, 184, 0.08);
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  background: #f5f3ef;
 }
 
 .periodoHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #ddd;
 }
 
 .periodoHeader h3 {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #f1f5f9;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0;
+  font-family: 'Courier New', monospace;
 }
 
 .periodoHeader span {
-  font-size: .8rem;
-  color: #94a3b8;
+  font-size: 0.65rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
 }
 
-/* ── Materia ── */
+.materiasList { }
+
+/* ── Materia Card ── */
 .materiaCard {
-  background: rgba(2, 6, 23, 0.7);
-  border: 1px solid rgba(148, 163, 184, 0.06);
-  padding: 1rem;
-  border-radius: 12px;
-  margin-bottom: .8rem;
-  transition: all .2s ease;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #eee;
+  background: #f5f3ef;
+  transition: background 0.12s;
 }
 
-.materiaCard:hover {
-  transform: translateY(-2px);
-  border-color: rgba(148, 163, 184, 0.2);
-}
+.materiaCard:last-child { border-bottom: none; }
+.materiaCard:hover { background: #edeae3; }
 
-/* Header materia */
 .materiaHeader {
   display: flex;
   justify-content: space-between;
-  margin-bottom: .6rem;
+  align-items: flex-start;
+  margin-bottom: 0.65rem;
+  gap: 1rem;
 }
 
 .materiaNombre {
-  font-size: .95rem;
-  font-weight: 500;
-  color: #e2e8f0;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
 }
 
 .materiaClave {
-  font-size: .75rem;
-  color: #64748b;
+  font-size: 0.62rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 
-/* ── Calificaciones ── */
+/* ── Parciales ── */
 .calificaciones {
   display: flex;
-  gap: .8rem;
+  width: fit-content;
+  border: 1px solid #ddd;
 }
 
 .calItem {
-  background: rgba(15, 23, 42, 0.8);
-  padding: .4rem .6rem;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 45px;
+  padding: 0.3rem 0.75rem;
+  border-right: 1px solid #ddd;
+  min-width: 52px;
 }
 
+.calItem:last-child { border-right: none; }
+
 .calLabel {
-  font-size: .65rem;
-  color: #64748b;
+  font-size: 0.58rem;
+  color: #aaa;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
 }
 
 .calValue {
-  font-size: .9rem;
-  font-weight: 600;
-  margin-top: 2px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
-/* ── Estados de calificación ── */
-.aprobado {
-  color: #22c55e;
+.aprobado { color: #1a1a1a; }
+.reprobado { color: #888; text-decoration: line-through; }
+.sinDato   { color: #ccc; }
+
+.error {
+  font-size: 0.78rem;
+  color: #1a1a1a;
+  padding: 1rem;
+  border-left: 2px solid #1a1a1a;
+  margin-bottom: 1rem;
 }
 
-.reprobado {
-  color: #ef4444;
-}
-
-.sinDato {
-  color: #475569;
-}
-
-/* ── Skeleton ── */
 .skeleton {
   display: inline-block;
-  background: linear-gradient(
-    90deg,
-    #0f172a 25%,
-    #1e293b 50%,
-    #0f172a 75%
-  );
+  background: linear-gradient(90deg, #ebe8e0 25%, #dedad1 50%, #ebe8e0 75%);
   background-size: 200% 100%;
   animation: shimmer 1.2s infinite;
+  border-radius: 2px;
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
+  0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+
+@media (max-width: 768px) {
+  .page { padding: 1.25rem; }
+  .materiaHeader { flex-direction: column; gap: 0.25rem; }
 }

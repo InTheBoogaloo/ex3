@@ -5,11 +5,11 @@ import { authFetch } from '@/lib/auth';
 import styles from './calificaciones.module.css';
 
 // ── Skeleton ─────────────────────────────
-function Skeleton({ w = '100%', h = '1rem', r = '6px' }) {
+function Skeleton({ w = '100%', h = '1rem' }) {
   return (
     <span
       className={styles.skeleton}
-      style={{ width: w, height: h, borderRadius: r }}
+      style={{ width: w, height: h, display: 'inline-block' }}
     />
   );
 }
@@ -35,11 +35,11 @@ function MateriaCard({ materia, loading }) {
     const nums = califs
       ?.map((c) => parseInt(c.calificacion))
       .filter((n) => !isNaN(n));
-
     if (!nums?.length) return null;
-
     return (nums.reduce((a, b) => a + b, 0) / nums.length).toFixed(1);
   };
+
+  const prom = promedio(materia.calificaiones);
 
   return (
     <div className={styles.materiaCard}>
@@ -53,13 +53,11 @@ function MateriaCard({ materia, loading }) {
         )}
 
         {loading ? (
-          <Skeleton w="100px" />
+          <Skeleton w="120px" />
         ) : (
           <span className={styles.materiaClave}>
-            {materia.materia.clave_materia} - {materia.materia.letra_grupo}
-            {promedio(materia.calificaiones) && (
-              <> • Prom: {promedio(materia.calificaiones)}</>
-            )}
+            {materia.materia.clave_materia} · {materia.materia.letra_grupo}
+            {prom && <> · prom: {prom}</>}
           </span>
         )}
       </div>
@@ -67,12 +65,11 @@ function MateriaCard({ materia, loading }) {
       <div className={styles.calificaciones}>
         {parciales.map((p) => {
           const val = getCal(p);
-
           return (
             <div key={p} className={styles.calItem}>
               <span className={styles.calLabel}>P{p}</span>
               {loading ? (
-                <Skeleton w="30px" h=".8rem" />
+                <Skeleton w="28px" h="0.85rem" />
               ) : (
                 <span className={`${styles.calValue} ${getClass(val)}`}>
                   {val}
@@ -115,25 +112,24 @@ function PeriodoBlock({ periodo, loading }) {
 
 // ── Página principal ─────────────────────
 export default function CalificacionesPage() {
-  const [data, setData] = useState([]);
+  const [data, setData]       = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError]     = useState('');
 
   useEffect(() => {
     authFetch('/movil/estudiante/calificaciones')
-      .then((res) => {
-        const info = res?.data || res;
-        setData(info);
-      })
+      .then((res) => setData(res?.data || res))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
 
   return (
     <section className={styles.page}>
-      <h1 className={styles.pageTitle}>Calificaciones</h1>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.pageTitle}>Calificaciones</h1>
+      </div>
 
-      {error && <div className={styles.error}>{error}</div>}
+      {error && <p className={styles.error}>{error}</p>}
 
       {loading ? (
         <Skeleton w="100%" h="120px" />
@@ -142,6 +138,6 @@ export default function CalificacionesPage() {
           <PeriodoBlock key={i} periodo={p} loading={loading} />
         ))
       )}
-    </section>  
+    </section>
   );
 }
