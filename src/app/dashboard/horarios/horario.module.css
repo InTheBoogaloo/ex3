@@ -1,0 +1,148 @@
+/* ─── Horario ────────────────────────────────────────────────────────────────── */
+.page {
+  padding: 2.5rem 3rem;
+  background: #f5f3ef;
+  min-height: 100vh;
+  color: #1a1a1a;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0 0 0.2rem;
+}
+
+.subtitle {
+  font-size: 0.68rem;
+  color: #aaa;
+  display: block;
+  letter-spacing: 0.06em;
+}
+
+/* ── Grid principal ── */
+.grid {
+  display: grid;
+  grid-template-columns: 52px repeat(5, 1fr);
+  gap: 0;
+  border: 1px solid #ccc;
+}
+
+/* ── Columna de horas ── */
+.horas {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ddd;
+}
+
+.horaLabelEmpty {
+  height: 32px;
+  border-bottom: 1px solid #ddd;
+}
+
+.horaLabel {
+  height: 60px;
+  font-size: 0.58rem;
+  color: #bbb;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.35rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ── Columnas días ── */
+.columna {
+  border-right: 1px solid #ddd;
+  background: #f5f3ef;
+  overflow: hidden;
+}
+
+.columna:last-child {
+  border-right: none;
+}
+
+.diaTitle {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: #aaa;
+  border-bottom: 1px solid #ddd;
+  background: #f5f3ef;
+}
+
+/* ── Cuerpo del día ── */
+.dayBody {
+  position: relative;
+}
+
+.slot {
+  height: 60px;
+  border-bottom: 1px solid #eee;
+}
+
+/* ── Clase ── */
+.clase {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  border: 1px solid #1a1a1a;
+  background: #edeae3;
+  padding: 0.3rem 0.4rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.nombre {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.salon {
+  display: block;
+  font-size: 0.56rem;
+  color: #888;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.hora {
+  display: block;
+  font-size: 0.56rem;
+  color: #bbb;
+  letter-spacing: 0.04em;
+}
+
+/* ── Loading ── */
+.loading {
+  padding: 2rem;
+  font-size: 0.78rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 768px) {
+  .page { padding: 1.25rem; }
+  .grid { grid-template-columns: 40px repeat(5, 1fr); }
+  .horaLabel { font-size: 0.5rem; padding: 0.2rem; }
+  .diaTitle  { font-size: 0.5rem; }
+}

@@ -1,0 +1,151 @@
+/* ─── Calificaciones ──────────────────────────────────────────────────────────── */
+.page {
+  padding: 2.5rem 3rem;
+  background: #f5f3ef;
+  min-height: 100vh;
+  color: #1a1a1a;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.pageTitle {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* ── Periodo ── */
+.periodo {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  background: #f5f3ef;
+}
+
+.periodoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.periodoHeader h3 {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.periodoHeader span {
+  font-size: 0.65rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+
+.materiasList { }
+
+/* ── Materia Card ── */
+.materiaCard {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #eee;
+  background: #f5f3ef;
+  transition: background 0.12s;
+}
+
+.materiaCard:last-child { border-bottom: none; }
+.materiaCard:hover { background: #edeae3; }
+
+.materiaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.65rem;
+  gap: 1rem;
+}
+
+.materiaNombre {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+}
+
+.materiaClave {
+  font-size: 0.62rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ── Parciales ── */
+.calificaciones {
+  display: flex;
+  width: fit-content;
+  border: 1px solid #ddd;
+}
+
+.calItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-right: 1px solid #ddd;
+  min-width: 52px;
+}
+
+.calItem:last-child { border-right: none; }
+
+.calLabel {
+  font-size: 0.58rem;
+  color: #aaa;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.calValue {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.aprobado { color: #1a1a1a; }
+.reprobado { color: #888; text-decoration: line-through; }
+.sinDato   { color: #ccc; }
+
+.error {
+  font-size: 0.78rem;
+  color: #1a1a1a;
+  padding: 1rem;
+  border-left: 2px solid #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.skeleton {
+  display: inline-block;
+  background: linear-gradient(90deg, #ebe8e0 25%, #dedad1 50%, #ebe8e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 2px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 768px) {
+  .page { padding: 1.25rem; }
+  .materiaHeader { flex-direction: column; gap: 0.25rem; }
+}

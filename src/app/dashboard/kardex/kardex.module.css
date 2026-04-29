@@ -1,0 +1,184 @@
+/* ─── Kardex ─────────────────────────────────────────────────────────────────── */
+.page {
+  padding: 2.5rem 3rem;
+  background: #f5f3ef;
+  min-height: 100vh;
+  color: #1a1a1a;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0 0 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+/* ── Resumen ── */
+.resumen {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  width: fit-content;
+}
+
+.resumenItem {
+  padding: 0.75rem 1.5rem;
+  border-right: 1px solid #ccc;
+}
+
+.resumenItem:last-child {
+  border-right: none;
+}
+
+.label {
+  display: block;
+  font-size: 0.6rem;
+  color: #aaa;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.value {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.06em;
+}
+
+/* ── Barra ── */
+.progressBar {
+  height: 2px;
+  background: #ddd;
+  margin-bottom: 2.5rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: #1a1a1a;
+}
+
+/* ── Semestre ── */
+.semestre {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  background: #f5f3ef;
+}
+
+.semestreHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.semestreHeader span {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+.prom {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.06em;
+}
+
+/* ── Materia ── */
+.materiaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #eee;
+  transition: background 0.12s;
+}
+
+.materiaRow:last-child {
+  border-bottom: none;
+}
+
+.materiaRow:hover {
+  background: #edeae3;
+}
+
+.nombre {
+  display: block;
+  font-size: 0.82rem;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+}
+
+.clave {
+  font-size: 0.62rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+
+.right {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.creditos {
+  font-size: 0.62rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+
+.calificacion {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  min-width: 2rem;
+  text-align: right;
+}
+
+/* ── Estados ── */
+.aprobado { color: #1a1a1a; }
+.reprobado { color: #888; text-decoration: line-through; }
+.sinDato   { color: #ccc; }
+
+/* ── Skeleton ── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #ebe8e0 25%,
+    #dedad1 50%,
+    #ebe8e0 75%
+  );
+  background-size: 200%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 200%; }
+  to   { background-position: -200%; }
+}
+
+/* ── Error ── */
+.error {
+  color: #1a1a1a;
+  font-size: 0.78rem;
+  padding: 2rem;
+  border-left: 2px solid #1a1a1a;
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .page { padding: 1.25rem; }
+  .resumen { flex-direction: column; width: 100%; }
+  .resumenItem { border-right: none; border-bottom: 1px solid #ccc; }
+  .resumenItem:last-child { border-bottom: none; }
+}
