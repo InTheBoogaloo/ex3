@@ -1,0 +1,116 @@
+.page {
+  padding: 2rem;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  min-height: 100vh;
+  color: #e2e8f0;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Resumen ── */
+.resumen {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: .7rem;
+  color: #64748b;
+}
+
+.value {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ── Barra ── */
+.progressBar {
+  height: 8px;
+  background: #1e293b;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  border-radius: 10px;
+}
+
+/* ── Semestre ── */
+.semestre {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 12px;
+}
+
+.semestreHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.prom {
+  font-weight: 700;
+}
+
+/* ── Materia ── */
+.materiaRow {
+  display: flex;
+  justify-content: space-between;
+  padding: .6rem 0;
+  border-bottom: 1px solid rgba(148,163,184,0.08);
+}
+
+.nombre {
+  display: block;
+  font-size: .9rem;
+}
+
+.clave {
+  font-size: .7rem;
+  color: #64748b;
+}
+
+.right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.creditos {
+  font-size: .7rem;
+  color: #94a3b8;
+}
+
+.calificacion {
+  font-weight: 700;
+}
+
+/* ── Estados ── */
+.aprobado { color: #22c55e; }
+.reprobado { color: #ef4444; }
+.sinDato { color: #475569; }
+
+/* ── Skeleton ── */
+.skeleton {
+  background: linear-gradient(90deg, #0f172a, #1e293b, #0f172a);
+  background-size: 200%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 200%; }
+  to { background-position: -200%; }
+}
+
+.error {
+  color: #ef4444;
+  padding: 2rem;
+}
